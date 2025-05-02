@@ -75,12 +75,12 @@ For applications needing strong relational features, consider **Azure SQL Databa
 ## 🛠️ Let's Build a Basic Setup! 🛠️
 
 Yes, we can absolutely outline the steps to create a basic setup for our user profile example using Azure Table Storage. Keep in mind, this will be a simplified illustration of the core concepts. A production-ready application would involve more advanced error handling, security measures, and potentially a separate application layer to interact with the storage.
-sudo apt update
-sudo apt install python3 python3-pip -y # For Ubuntu
-sudo apt install python3-venv -y
-python3 -m venv venv
-source venv/bin/activate
-pip install flask azure-data-tables
-export AZURE_STORAGE_ACCOUNT_NAME="your_storage_account_name"
-export AZURE_STORAGE_ACCOUNT_KEY="your_storage_account_key"
-python app.py
+* sudo apt update
+* sudo apt install python3 python3-pip -y # For Ubuntu
+* sudo apt install python3-venv -y
+* python3 -m venv venv
+* source venv/bin/activate
+* pip install flask azure-data-tables
+* export AZURE_STORAGE_ACCOUNT_NAME="your_storage_account_name"
+* export AZURE_STORAGE_ACCOUNT_KEY="your_storage_account_key"
+* python app.py
