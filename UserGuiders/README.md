@@ -14,7 +14,7 @@ The terms "Schema-on-Write" and "Schema-on-Read" describe fundamentally differen
 
 **How it works:** When you try to insert data, the database **validates** it against the predefined schema. If the data doesn't conform to the schema (e.g., wrong data type, missing required fields), the write operation will typically fail.
 
-**Characteristics and Implications:**
+* **Characteristics and Implications:**
 
 * **Data Consistency:** Enforces a consistent structure, leading to better data quality and integrity.
 * **Efficient Querying:** Because the data is well-structured, queries can be highly optimized, often using indexes.
@@ -41,7 +41,7 @@ VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
 -- This would likely result in an error
 -- INSERT INTO Users (UserID, Username) VALUES (2, 'jane.doe');
 
-#### ✍️ Schema-on-Write
+### 👓 Schema-on-Read
 
 **Definition:**
 
