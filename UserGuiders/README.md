@@ -22,7 +22,7 @@ The terms "Schema-on-Write" and "Schema-on-Read" describe fundamentally differen
 * **Less Flexibility:** Modifying the schema after data has been written can be complex and time-consuming, potentially requiring schema migrations.
 * **Higher Upfront Design Effort:** Requires careful planning and design of the database schema before development.
 
-**Example (SQL Database):**
+* **Example (SQL Database):**
 
 ```sql
 -- Define the schema for a 'Users' table
