@@ -41,7 +41,8 @@ VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
 -- This would likely result in an error
 -- INSERT INTO Users (UserID, Username) VALUES (2, 'jane.doe');
 
-### 👓 **Schema-on-Read**
+
+## ✍️ Schema-on-Write
 
 **Definition:**
 
