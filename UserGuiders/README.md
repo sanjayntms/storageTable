@@ -49,9 +49,11 @@ VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
 
 -- This would result in an error (missing NOT NULL field)
 -- INSERT INTO Users (UserID, Username) VALUES (2, 'jane.doe');
-👓 Schema-on-Read
+
+## 👓 Schema-on-Read
 Definition:
-In a schema-on-read system, like Azure Table Storage or many NoSQL databases, you don't define a strict schema before writing. The structure is interpreted during data retrieval.
+In a schema-on-read system, like Azure Table Storage or many NoSQL databases, you don't define a strict schema before writing. 
+The structure is interpreted during data retrieval.
 
 How it works:
 
