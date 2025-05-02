@@ -41,45 +41,40 @@ VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
 -- This would likely result in an error
 -- INSERT INTO Users (UserID, Username) VALUES (2, 'jane.doe');
 
-### 👓 Schema-on-Read
+### 👓 **Schema-on-Read**
 
-**Definition:** In a schema-on-read system, like **Azure Table Storage** (and many other NoSQL databases), you **do not define a fixed schema before writing data.** Instead, the structure of the data is interpreted *when you read* it.
+**Definition:**
 
-**How it works:** Each entity (row in Azure Table Storage) is essentially a collection of key-value pairs (properties). Entities within the same table can have different sets of properties and different data types for properties with the same name. The schema is implicitly defined by the data itself and how your application interprets it during reads.
+In a **schema-on-read** system, like **Azure Table Storage** and many NoSQL databases, you **don't define a fixed structure** for data before writing. The structure is interpreted when reading.
 
-**Characteristics and Implications:**
+**How it Works:**
 
-* **High Flexibility:** Easily accommodate evolving data requirements without altering a rigid table structure. You can add new attributes to entities without affecting others.
-* **Faster Ingestion:** Data can be written quickly without the overhead of schema validation.
-* **Handles Diverse Data:** Well-suited for semi-structured or unstructured data where the format might vary.
-* **Application Responsibility for Consistency:** The application code is responsible for ensuring data consistency and interpreting the different "schemas" present in the data.
-* **Potentially Less Efficient Complex Queries:** Without a predefined schema and indexing on arbitrary columns, complex queries might be less performant and may require scanning more data.
-* **Lower Upfront Design Effort:** You can start storing data without a detailed, predefined structure.
+* Data ("entities" in Azure Table Storage) are collections of **key-value pairs (properties)**.
+* Entities in the same table **can have different properties**.
+* The "schema" is implied by the data and how your app reads it.
 
-**Example (Azure Table Storage):**
+**Key Characteristics:**
+
+* **✅ High Flexibility:** Adapt to changing data easily. Add attributes without altering the whole structure.
+* **🚀 Faster Ingestion:** Write data quickly without schema validation.
+* **🧽 Handles Diverse Data:** Good for varied or semi-structured data.
+* **⚠️ Application Handles Consistency:** Your code ensures data consistency.
+* **🐌 Less Efficient Complex Queries:** Complex searches might be slower.
+* **💡 Lower Upfront Design Effort:** Start storing data without a detailed plan.
+
+**Example (Azure Table Storage - Python):**
 
 ```python
 from azure.data.tables import TableClient
 
-# Assuming you have a TableClient object
+# Assuming you have a TableClient
 
-# Entity with a basic set of properties
-task1 = {
-    'PartitionKey': 'tasks',
-    'RowKey': '1',
-    'description': 'Buy groceries',
-    'dueDate': '2025-05-05'
-}
-table_client.upsert_entity(entity=task1)
+task1 = {'PartitionKey': 'tasks', 'RowKey': '1',
+         'description': 'Buy groceries', 'dueDate': '2025-05-05'}
+table_client.upsert_entity(task1)
 
-# Entity in the same table with different properties
-task2 = {
-    'PartitionKey': 'tasks',
-    'RowKey': '2',
-    'title': 'Call plumber',
-    'priority': 'High'
-}
-table_client.upsert_entity(entity=task2)
+task2 = {'PartitionKey': 'tasks', 'RowKey': '2',
+         'title': 'Call plumber', 'priority': 'High'}
+table_client.upsert_entity(task2)
 
-# When reading, your application needs to know how to handle
-# the different sets of properties for each entity.
+# Your app handles the different properties when reading.
