@@ -41,8 +41,7 @@ VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
 -- This would likely result in an error
 -- INSERT INTO Users (UserID, Username) VALUES (2, 'jane.doe');
 
-
-## ✍️ Schema-on-Write
+#### ✍️ Schema-on-Write
 
 **Definition:**
 
@@ -79,3 +78,5 @@ task2 = {'PartitionKey': 'tasks', 'RowKey': '2',
 table_client.upsert_entity(task2)
 
 # Your app handles the different properties when reading.
+
+
