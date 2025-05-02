@@ -32,20 +32,17 @@ Characteristics and Implications:
 
 Example (SQL Database):
 
-sql
-Copy
-Edit
--- Define the schema for a 'Users' table
-CREATE TABLE Users (
+    -- Define the schema for a 'Users' table
+  CREATE TABLE Users (
     UserID INT PRIMARY KEY,
     Username VARCHAR(50) NOT NULL UNIQUE,
     Email VARCHAR(100) NOT NULL,
     RegistrationDate DATETIME
-);
+  );
 
--- Insert data that conforms to the schema
-INSERT INTO Users (UserID, Username, Email, RegistrationDate)
-VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
+   -- Insert data that conforms to the schema
+   INSERT INTO Users (UserID, Username, Email, RegistrationDate)
+   VALUES (1, 'john.doe', 'john.doe@example.com', GETDATE());
 
 -- This would result in an error (missing NOT NULL field)
 -- INSERT INTO Users (UserID, Username) VALUES (2, 'jane.doe');
