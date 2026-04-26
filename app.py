@@ -1,5 +1,5 @@
+from azure_storage_service import create_user_profile, query_profiles_by_name, get_all_profiles
 from flask import Flask, render_template, request, redirect, url_for
-from azure_storage_service import create_user_profile, get_user_profile, query_profiles_by_name, get_all_profiles
 
 app = Flask(__name__)
 
