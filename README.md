@@ -81,6 +81,7 @@ Yes, we can absolutely outline the steps to create a basic setup for our user pr
 * python3 -m venv venv
 * source venv/bin/activate
 * pip install flask azure-data-tables
+* pip install cryptography
 * export AZURE_STORAGE_ACCOUNT_NAME="your_storage_account_name"
 * export AZURE_STORAGE_ACCOUNT_KEY="your_storage_account_key"
 * python app.py
