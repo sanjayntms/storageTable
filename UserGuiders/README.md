@@ -74,6 +74,8 @@ Key Characteristics:
 
 💡 Lower Upfront Design Effort: Start storing data with minimal setup.
 
+"Azure Table Storage is schemaless at the entity-property level. PartitionKey and RowKey are required, but other properties can vary between entities."
+
 Example (Azure Table Storage - Python):
 
 python
